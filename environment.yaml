@@ -1,0 +1,14 @@
+name: taenv
+channels:
+  - defaults
+dependencies:
+  - python=3.9
+  - pandas
+  - matplotlib
+  - numpy
+  - notebook
+  - scikit-learn
+  - pyyaml
+  - statsmodels
+  - pydantic
+  - networkx

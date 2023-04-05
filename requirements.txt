@@ -1,0 +1,10 @@
+# This is a sample requirements.txt file which can be used to setup your environment using `pip install -r requirements.txt`
+pandas
+matplotlib
+numpy
+notebook
+scikit-learn
+pyyaml
+statsmodels
+pydantic
+networkx
