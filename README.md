@@ -14,9 +14,7 @@ conda env create -f environment.yaml
 
 
 ### pip / virtualenv
-- Use `scripts/create_env_files.py` with the flag `--manager` set to 'pip' to generate a requirements.txt file. The following code will install all the dependencies in your `virtualenv` (**Note:** you will have to create it first).
 ```bash
-python scripts/create_env_files.py --manager pip
 pip install -r requirements.txt
 ```
 
