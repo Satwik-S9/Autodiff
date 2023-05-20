@@ -19,6 +19,7 @@ OPERATIONS_DICT = {}
 
 
 # === BASE VARIABLE CLASS === #
+# @dataclass
 class Node(pydantic.BaseModel):
     """A dataclass representing a base variable"""
     value: float
@@ -68,7 +69,9 @@ class Edge:
  
 
 
-# === OPERATION FUNCTIONS === #        
+# === OPERATION FUNCTIONS === #  
+# F = A + B
+      
 def add(a, b, name=None):
     """Create the variable that results from adding two variables."""
     value = a.value + b.value
@@ -79,7 +82,7 @@ def add(a, b, name=None):
     
     return Edge(value, name, local_gradients)
 
-
+# F = AB
 def mul(a, b, name=None):
     """Create a Variable that results from multiplying two variables"""
     value = a.value * b.value
@@ -99,7 +102,7 @@ def neg(a, name=None):
     
     return Edge(value, name, local_gradients)
 
-
+# F = 1 / A
 def inv(a, name=None):
     value = 1. / a.value
     if name is None:
@@ -134,9 +137,10 @@ def log(a):
 
  
 # === GRADIENT FUNCTION === #
+#  f, a, b, c, d, e
 def get_gradients(variable):
     """Compute the first derivatives of 'variables' wrt to their child variables"""
-    gradients = defaultdict(lambda: 0)  # init defaultdict of zeros
+    gradients = defaultdict(lambda: 0)  # init defaultdict of zeros AS KEYS
     
     def compute_gradients(variable, path_value):
         for child, local_gradient in variable.local_gradients:
